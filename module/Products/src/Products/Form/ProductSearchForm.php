@@ -27,7 +27,7 @@ class ProductSearchForm extends Form
                     'type'  => 'submit',
                     'value' => 'Go',
                     'id' => 'submitbutton',
-                    'class' => 'btn',
+                    'class' => 'btn btn-default',
                 ),
             ));
     }
