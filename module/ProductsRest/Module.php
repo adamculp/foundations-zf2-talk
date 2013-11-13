@@ -7,11 +7,12 @@
  * @license   http://framework.zend.com/license/new-bsd New BSD License
  */
 
-namespace ZendSkeletonModule;
+namespace ProductsRest;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Products\Model\ProductTable;
 
 class Module implements AutoloaderProviderInterface
 {
@@ -42,5 +43,18 @@ class Module implements AutoloaderProviderInterface
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+    }
+    
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+                'Products\Model\ProductTable' => function($sm) {
+                        $db = $sm->get('Zend\Db\Adapter\Adapter');
+                        $product = new ProductTable($db);
+                        return $product;
+                    },
+            ),
+        );
     }
 }

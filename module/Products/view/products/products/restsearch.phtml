@@ -1,0 +1,24 @@
+<?php
+$title = 'Product Search';
+$this->headTitle($title);
+?>
+    <h1><?php echo $this->escapeHtml($title); ?></h1>
+    <div>
+        <strong>Note:</strong> The use of this form is to request, via a 'GET' REST call, the information linked to a
+        product using the product ID as the identifier. It returns the information
+        in a JSON object, ready for use by the requesting party.<br /><br />
+    </div>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('product-rest'));
+//$form->setAttribute('method', 'post');
+$form->prepare();
+
+echo $this->form()->openTag($form) . "\n";
+
+echo $this->formRow($form->get('id'));
+
+echo $this->formSubmit($form->get('submit')) . "\n";
+
+echo $this->form()->closeTag() . "\n";
+?>

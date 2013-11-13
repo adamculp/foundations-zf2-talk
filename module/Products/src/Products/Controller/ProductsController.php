@@ -36,7 +36,6 @@ class ProductsController extends AbstractActionController
     {
         $product = '';
         $form = new ProductSearchForm();
-//        $form->setAttribute('action', $this->url()->fromRoute('product-rest'));
         $form->get('submit')->setValue('Search');
 
         $request = $this->getRequest();
@@ -48,11 +47,18 @@ class ProductsController extends AbstractActionController
 
         return array('form' => $form, 'product' => $product);
     }
+
+    public function restsearchAction()
+    {
+        $form = new ProductSearchForm();
+        $form->get('submit')->setValue('Search');
+
+        return array('form' => $form);
+    }
     
     public function addAction()
     {
         $form = new ProductAddForm();
-//        $form->setAttribute('action', $this->url()->fromRoute('product-rest'));
         $form->get('submit')->setValue('Add');
         
         $request = $this->getRequest();
