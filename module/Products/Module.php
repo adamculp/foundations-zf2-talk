@@ -12,6 +12,10 @@ namespace Products;
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
 use Zend\Mvc\ModuleRouteListener;
 use Zend\Mvc\MvcEvent;
+use Products\Model\Product;
+use Products\Model\ProductTable;
+use Zend\Db\ResultSet\ResultSet;
+use Zend\Db\TableGateway\TableGateway;
 
 class Module implements AutoloaderProviderInterface
 {
@@ -43,4 +47,18 @@ class Module implements AutoloaderProviderInterface
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
     }
+
+    public function getServiceConfig()
+    {
+        return array(
+            'factories' => array(
+                'ProductTable' => function($sm) {
+                    $db = $sm->get('Zend\Db\Adapter\Adapter');
+                    $table = new ProductTable($db);
+                    return $table;
+                    },
+            ),
+        );
+    }
+
 }

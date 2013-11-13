@@ -1,3 +1,24 @@
 <strong>Module:</strong>        Products &raquo;
 <strong>Controller:</strong>    ProductsController &raquo;
 <strong>Action:</strong>        index
+
+<h1>Product List</h1>
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Active</th>
+    </tr>
+    <?php foreach ($this->products as $product) : ?>
+    <tr>
+        <td><?php echo $product['id']; ?></td>
+        <td><?php echo $product['name']; ?></td>
+        <td><?php echo $product['description']; ?></td>
+        <td><?php echo $product['quantity']; ?></td>
+        <td><?php echo $product['is_active']; ?></td>
+    </tr>
+    <?php endforeach; ?>
+</table>
+

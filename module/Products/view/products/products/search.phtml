@@ -10,7 +10,8 @@ $this->headTitle($title);
     </div>
 <?php
 $form = $this->form;
-$form->setAttribute('action', $this->url('product-rest'));
+//$form->setAttribute('action', $this->url('product-rest'));
+$form->setAttribute('method', 'post');
 $form->prepare();
 ?>
 
@@ -22,3 +23,27 @@ echo $this->formRow($form->get('id'));
 echo $this->formSubmit($form->get('submit')) . "\n";
 
 echo $this->form()->closeTag() . "\n";
+?>
+
+<?php if ($this->product) { ?>
+<h3>Product Info</h3>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Quantity</th>
+        <th>Active</th>
+    </tr>
+    <?php foreach ($this->product as $product) : ?>
+        <tr>
+            <td><?php echo $product['id']; ?></td>
+            <td><?php echo $product['name']; ?></td>
+            <td><?php echo $product['description']; ?></td>
+            <td><?php echo $product['quantity']; ?></td>
+            <td><?php echo $product['is_active']; ?></td>
+        </tr>
+    <?php endforeach; ?>
+</table>
+<?php } ?>
