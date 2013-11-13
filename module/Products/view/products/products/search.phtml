@@ -13,9 +13,7 @@ $form = $this->form;
 //$form->setAttribute('action', $this->url('product-rest'));
 $form->setAttribute('method', 'post');
 $form->prepare();
-?>
 
-<?php
 echo $this->form()->openTag($form) . "\n";
 
 echo $this->formRow($form->get('id'));
