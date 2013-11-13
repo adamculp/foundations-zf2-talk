@@ -12,6 +12,8 @@ namespace Products\Controller;
 use Zend\Mvc\Controller\AbstractActionController;
 use Products\Form\ProductSearchForm;
 use Products\Form\ProductSearchFilter;
+use Products\Form\ProductAddForm;
+use Products\Form\ProductAddFilter;
 
 class ProductsController extends AbstractActionController
 {
@@ -25,6 +27,15 @@ class ProductsController extends AbstractActionController
         $form = new ProductSearchForm();
         $form->setAttribute('action', $this->url()->fromRoute('product-rest'));
         $form->get('submit')->setValue('Search');
+
+        return array('form' => $form);
+    }
+    
+    public function addAction()
+    {
+        $form = new ProductAddForm();
+        $form->setAttribute('action', $this->url()->fromRoute('product-rest'));
+        $form->get('submit')->setValue('Add');
 
         return array('form' => $form);
     }

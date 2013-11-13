@@ -1,0 +1,81 @@
+<?php
+
+$title = 'Product Add';
+$this->headTitle($title);
+?>
+    <h1><?php echo $this->escapeHtml($title); ?></h1>
+    <div>
+        <strong>Note:</strong> The use of this form is to add, via a 'POST' REST call, a product. Then the application 
+        returns the FULL product information in the form of a JSON object, ready for use by
+        the requesting party.<br /><br />
+    </div>
+<?php
+$form = $this->form;
+$form->setAttribute('action', $this->url('product-rest'));
+$form->setAttribute('class', 'form-horizontal');
+$form->prepare();
+
+echo $this->form()->openTag($form) . "\n";
+?>
+    <div class="form-group">
+        <?php
+        $elementId = $form->get('id');
+        $elementId->setLabelAttributes(array('class' => 'col-sm-2 control-label'));
+        echo $this->formLabel($elementId) . "\n";
+        ?>
+        <div class="col-sm-4">
+            <?php echo $this->formText($elementId) . "\n"; ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <?php
+        $elementAddress = $form->get('address');
+        $elementAddress->setLabelAttributes(array('class' => 'col-sm-2 control-label'));
+        echo $this->formLabel($elementAddress) . "\n";
+        ?>
+        <div class="col-sm-10">
+            <?php echo $this->formText($elementAddress) . "\n"; ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <?php
+        $elementCity = $form->get('city');
+        $elementCity->setLabelAttributes(array('class' => 'col-sm-2 control-label'));
+        echo $this->formLabel($elementCity) . "\n";
+        ?>
+        <div class="col-sm-6">
+            <?php echo $this->formText($elementCity) . "\n"; ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <?php
+        $elementState = $form->get('state');
+        $elementState->setLabelAttributes(array('class' => 'col-sm-2 control-label'));
+        echo $this->formLabel($elementState) . "\n";
+        ?>
+        <div class="col-sm-2">
+            <?php echo $this->formText($elementState) . "\n"; ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <?php
+        $elementZip = $form->get('zip');
+        $elementZip->setLabelAttributes(array('class' => 'col-sm-2 control-label'));
+        echo $this->formLabel($elementZip) . "\n";
+        ?>
+        <div class="col-sm-4">
+            <?php echo $this->formText($elementZip) . "\n"; ?>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-4">
+            <?php echo $this->formSubmit($form->get('submit')) . "\n"; ?>
+        </div>
+    </div>
+<?php
+echo $this->form()->closeTag() . "\n";
