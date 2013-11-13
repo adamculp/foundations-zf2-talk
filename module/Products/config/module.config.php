@@ -2,21 +2,20 @@
 return array(
     'controllers' => array(
         'invokables' => array(
-            'ZendSkeletonModule\Controller\Skeleton' => 'ZendSkeletonModule\Controller\SkeletonController',
+            'Products\Controller\Products' => 'Products\Controller\ProductsController',
         ),
     ),
     'router' => array(
         'routes' => array(
-            'module-name-here' => array(
+            'product-index' => array(
                 'type'    => 'Literal',
                 'options' => array(
                     // Change this to something specific to your module
-                    'route'    => '/module-specific-root',
+                    'route'    => '/products',
                     'defaults' => array(
                         // Change this value to reflect the namespace in which
                         // the controllers for your module are found
-                        '__NAMESPACE__' => 'ZendSkeletonModule\Controller',
-                        'controller'    => 'Skeleton',
+                        'controller'    => 'Products\Controller\Products',
                         'action'        => 'index',
                     ),
                 ),
@@ -42,9 +41,17 @@ return array(
             ),
         ),
     ),
+    'navigation' => array(
+        'default' => array(
+            array(
+                'label' => 'Products',
+                'route' => 'product-index',
+            ),
+        ),
+    ),
     'view_manager' => array(
         'template_path_stack' => array(
-            'ZendSkeletonModule' => __DIR__ . '/../view',
+            'Products' => __DIR__ . '/../view',
         ),
     ),
 );
