@@ -10,11 +10,22 @@
 namespace Products\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Products\Form\ProductSearchForm;
+use Products\Form\ProductSearchFilter;
 
 class ProductsController extends AbstractActionController
 {
     public function indexAction()
     {
         return array();
+    }
+    
+    public function searchAction()
+    {
+        $form = new ProductSearchForm();
+        $form->setAttribute('action', $this->url()->fromRoute('product-rest'));
+        $form->get('submit')->setValue('Search');
+
+        return array('form' => $form);
     }
 }
