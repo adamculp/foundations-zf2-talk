@@ -19,6 +19,16 @@ class Module
         $eventManager        = $e->getApplication()->getEventManager();
         $moduleRouteListener = new ModuleRouteListener();
         $moduleRouteListener->attach($eventManager);
+        
+        $eventManager->attach(\Zend\Mvc\MvcEvent::EVENT_DISPATCH, array($this, 'onDispatch'), 100);
+    }
+    
+    public function onDispatch(MvcEvent $e)
+    {
+        $categoryList = $e->getApplication()->getServiceManager()->get('categories');
+        
+        $viewModel = $e->getViewModel();
+        $viewModel->setVariable('categories', $categoryList);
     }
 
     public function getConfig()

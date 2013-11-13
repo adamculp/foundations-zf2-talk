@@ -61,6 +61,15 @@ return array(
         ),
     ),
     'service_manager' => array(
+        'services' => array(
+            'categories' => array(
+                'human powered',
+                'foot powered',
+                'wind powered',
+                'motor powered',
+                'brain powered',
+            ),
+        ),
         'factories' => array(
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
         ),
