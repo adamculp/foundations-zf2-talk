@@ -12,5 +12,13 @@
  */
 
 return array(
-    // ...
+    'db' => array(
+        'driver' => 'pdo',
+        'dsn' => 'sqlite:' . getcwd() . '/data/Products.db',
+    ),
+    'service_manager' => array(
+        'factories' => array(
+            'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+        ),
+    ),
 );
