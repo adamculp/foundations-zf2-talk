@@ -13,9 +13,9 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 
 use Products\Form\ProductSearchForm;
-use Products\Form\ProductSearchFilter;
+//use Products\Form\ProductSearchFilter;
 use Products\Form\ProductAddForm;
-use Products\Form\ProductAddFilter;
+//use Products\Form\ProductAddFilter;
 use Products\Model\Product;
 
 class ProductsController extends AbstractActionController

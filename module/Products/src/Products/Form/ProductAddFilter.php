@@ -3,7 +3,7 @@
 namespace Products\Form;
 
 use Zend\InputFilter\InputFilter;
-use Zend\InputFilter\Input;
+//use Zend\InputFilter\Input;
 use Zend\Validator;
 
 class ProductAddFilter extends InputFilter
