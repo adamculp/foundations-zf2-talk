@@ -20,8 +20,14 @@ use Products\Model\Product;
 
 class ProductsController extends AbstractActionController
 {
+    /**
+     * @var
+     */
     protected $productTable;
-    
+
+    /**
+     * @return array|ViewModel
+     */
     public function indexAction()
     {
         $products = $this->getProductTable()->findAll();
@@ -31,7 +37,10 @@ class ProductsController extends AbstractActionController
             )
         );
     }
-    
+
+    /**
+     * @return array
+     */
     public function searchAction()
     {
         $product = '';
@@ -48,6 +57,9 @@ class ProductsController extends AbstractActionController
         return array('form' => $form, 'product' => $product);
     }
 
+    /**
+     * @return array
+     */
     public function restsearchAction()
     {
         $form = new ProductSearchForm();
@@ -55,7 +67,10 @@ class ProductsController extends AbstractActionController
 
         return array('form' => $form);
     }
-    
+
+    /**
+     * @return array|\Zend\Http\Response
+     */
     public function addAction()
     {
         $form = new ProductAddForm();
@@ -77,7 +92,10 @@ class ProductsController extends AbstractActionController
 
         return array('form' => $form);
     }
-    
+
+    /**
+     * @return array|object
+     */
     public function getProductTable()
     {
         if (!$this->productTable) {

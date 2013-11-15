@@ -8,6 +8,9 @@ use Zend\Validator;
 
 class ProductAddFilter extends InputFilter
 {
+    /**
+     * 
+     */
     public function __construct()
     {
         // ID

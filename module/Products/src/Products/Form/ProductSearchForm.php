@@ -5,6 +5,9 @@ use Zend\Form\Form;
 
 class ProductSearchForm extends Form
 {
+    /**
+     * @param string $name
+     */
     public function __construct($name = 'product')
     {
         parent::__construct($name);

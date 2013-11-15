@@ -8,7 +8,10 @@ class Product
     public $description;
     public $quantity;
     public $image;
-    
+
+    /**
+     * @param $data
+     */
     public function exchangeArray($data)
     {
         $this->id     = (isset($data['id']))     ? $data['id']     : null;
