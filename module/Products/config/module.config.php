@@ -1,4 +1,5 @@
 <?php
+
 return array(
     'controllers' => array(
         'invokables' => array(
@@ -19,25 +20,6 @@ return array(
                         'action'        => 'index',
                     ),
                 ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    // This route is a sane default when developing a module;
-                    // as you solidify the routes for your module, however,
-                    // you may want to remove it and replace it with more
-                    // specific routes.
-                    'default' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                            ),
-                        ),
-                    ),
-                ),
             ),
             'product-search' => array(
                 'type'    => 'Literal',
@@ -49,25 +31,6 @@ return array(
                         // the controllers for your module are found
                         'controller'    => 'Products\Controller\Products',
                         'action'        => 'search',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    // This route is a sane default when developing a module;
-                    // as you solidify the routes for your module, however,
-                    // you may want to remove it and replace it with more
-                    // specific routes.
-                    'default' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                            ),
-                        ),
                     ),
                 ),
             ),
@@ -83,25 +46,6 @@ return array(
                         'action'        => 'restsearch',
                     ),
                 ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    // This route is a sane default when developing a module;
-                    // as you solidify the routes for your module, however,
-                    // you may want to remove it and replace it with more
-                    // specific routes.
-                    'default' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                            ),
-                        ),
-                    ),
-                ),
             ),
             'product-add' => array(
                 'type'    => 'Literal',
@@ -113,25 +57,6 @@ return array(
                         // the controllers for your module are found
                         'controller'    => 'Products\Controller\Products',
                         'action'        => 'add',
-                    ),
-                ),
-                'may_terminate' => true,
-                'child_routes' => array(
-                    // This route is a sane default when developing a module;
-                    // as you solidify the routes for your module, however,
-                    // you may want to remove it and replace it with more
-                    // specific routes.
-                    'default' => array(
-                        'type'    => 'Segment',
-                        'options' => array(
-                            'route'    => '/[:controller[/:action]]',
-                            'constraints' => array(
-                                'controller' => '[a-zA-Z][a-zA-Z0-9_-]*',
-                                'action'     => '[a-zA-Z][a-zA-Z0-9_-]*',
-                            ),
-                            'defaults' => array(
-                            ),
-                        ),
                     ),
                 ),
             ),
