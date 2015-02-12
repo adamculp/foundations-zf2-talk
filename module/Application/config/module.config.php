@@ -39,15 +39,6 @@ return array(
         ),
     ),
     'service_manager' => array(
-        'services' => array(
-            'categories' => array(
-                'human powered',
-                'foot powered',
-                'wind powered',
-                'motor powered',
-                'brain powered',
-            ),
-        ),
         'factories' => array(
             'navigation' => 'Zend\Navigation\Service\DefaultNavigationFactory',
         ),
@@ -57,6 +48,15 @@ return array(
         ),
         'aliases' => array(
             'translator' => 'MvcTranslator',
+        ),
+        'services' => array(
+            'categories' => array(
+                'human powered',
+                'foot powered',
+                'wind powered',
+                'motor powered',
+                'brain powered',
+            ),
         ),
     ),
     'translator' => array(
