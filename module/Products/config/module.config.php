@@ -1,11 +1,6 @@
 <?php
 
 return array(
-    'controllers' => array(
-        'invokables' => array(
-            'Products\Controller\Products' => 'Products\Controller\ProductsController',
-        ),
-    ),
     'router' => array(
         'routes' => array(
             'product-index' => array(
@@ -80,6 +75,16 @@ return array(
                 'label' => 'Product REST Search',
                 'route' => 'product-rest-search',
             ),
+        ),
+    ),
+    'controllers' => array(
+        'factories' => array(
+            'Products\Controller\Products' => 'Products\Factory\ProductFactory',
+        ),
+    ),
+    'service_manager' => array(
+        'factories' => array(
+            'Products\Model\ProductTable' => 'Products\Model\ProductTableFactory',
         ),
     ),
     'view_manager' => array(

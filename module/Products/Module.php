@@ -3,7 +3,6 @@
 namespace Products;
 
 use Zend\ModuleManager\Feature\AutoloaderProviderInterface;
-use Products\Model\ProductTable;
 
 class Module implements AutoloaderProviderInterface
 {
@@ -23,18 +22,4 @@ class Module implements AutoloaderProviderInterface
     {
         return include __DIR__ . '/config/module.config.php';
     }
-
-    public function getServiceConfig()
-    {
-        return array(
-            'factories' => array(
-                'ProductTable' => function($sm) {
-                    $db = $sm->get('Zend\Db\Adapter\Adapter');
-                    $table = new ProductTable($db);
-                    return $table;
-                    },
-            ),
-        );
-    }
-
 }

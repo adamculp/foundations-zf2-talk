@@ -4,26 +4,30 @@ namespace Products\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
-
+use Products\Model\ProductTable;
 use Products\Form\ProductSearchForm;
 //use Products\Form\ProductSearchFilter;
 use Products\Form\ProductAddForm;
 //use Products\Form\ProductAddFilter;
-use Products\Model\Product;
 
 class ProductsController extends AbstractActionController
 {
     /**
      * @var
      */
-    protected $productTable;
-
+    private $productTable;
+    
+    public function __construct(ProductTable $table)
+    {
+        $this->productTable = $table;
+    }
+    
     /**
      * @return array|ViewModel
      */
     public function indexAction()
     {
-        $products = $this->getProductTable()->findAll();
+        $products = $this->productTable->findAll();
         
         return new ViewModel(array(
                 'products' => $products,
@@ -43,7 +47,7 @@ class ProductsController extends AbstractActionController
         $request = $this->getRequest();
         if ($request->isPost()) {
             
-            $product = $this->getProductTable()->find($this->params()->fromPost('id'));
+            $product = $this->productTable()->find($this->params()->fromPost('id'));
             
         }
 
@@ -77,25 +81,12 @@ class ProductsController extends AbstractActionController
             
             if ($form->isValid()) {
                 $product->exchangeArray($form->getData());
-                $this->getProductTable()->saveProduct('product');
+                $this->productTable()->saveProduct('product');
                 
                 return $this->redirect()->toRoute('product-index');
             }
         }
 
         return array('form' => $form);
-    }
-
-    /**
-     * @return array|object
-     */
-    public function getProductTable()
-    {
-        if (!$this->productTable) {
-            $sm = $this->getServiceLocator();
-            $this->productTable = $sm->get('ProductTable');
-        }
-        
-        return $this->productTable;
     }
 }
