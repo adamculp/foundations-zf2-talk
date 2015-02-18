@@ -47,7 +47,7 @@ class ProductsController extends AbstractActionController
         $request = $this->getRequest();
         if ($request->isPost()) {
             
-            $product = $this->productTable()->find($this->params()->fromPost('id'));
+            $product = $this->productTable->find($this->params()->fromPost('id'));
             
         }
 
@@ -81,7 +81,7 @@ class ProductsController extends AbstractActionController
             
             if ($form->isValid()) {
                 $product->exchangeArray($form->getData());
-                $this->productTable()->saveProduct('product');
+                $this->productTable->saveProduct('product');
                 
                 return $this->redirect()->toRoute('product-index');
             }
